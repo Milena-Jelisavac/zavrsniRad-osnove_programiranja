@@ -9,6 +9,8 @@ include 'conect.php'
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     $posts = $statement->fetchAll();
+    $sql1 = "SELECT users.first_Name, users.last_Name, posts.author, users.id
+FROM users INNER JOIN posts ON users.id=posts.author"
     ?>
     <?php
     foreach ($posts as $post) {
